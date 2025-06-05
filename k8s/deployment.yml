@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-cicd-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-cicd
+  template:
+    metadata:
+      labels:
+        app: simple-cicd
+    spec:
+      containers:
+        - name: simple-cicd
+          image: mukesh-1608/simple-cicd-app:latest
+          ports:
+            - containerPort: 3000
